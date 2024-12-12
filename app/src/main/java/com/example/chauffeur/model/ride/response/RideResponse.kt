@@ -1,5 +1,7 @@
 package com.example.chauffeur.model.ride.response
 
+import com.example.chauffeur.model.ride.requests.RideRequest
+import com.google.gson.annotations.Expose
 import java.io.Serializable
 
 data class RideResponse(
@@ -8,7 +10,9 @@ data class RideResponse(
     val distance: Int,
     val duration: Int,
     val options: List<Option>
-) : Serializable
+) : Serializable {
+    var rideRequest: RideRequest? = null
+}
 
 data class OriginResponse(
     val latitude: Double,

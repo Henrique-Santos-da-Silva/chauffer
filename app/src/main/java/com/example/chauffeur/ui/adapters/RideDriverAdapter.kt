@@ -1,14 +1,20 @@
 package com.example.chauffeur.ui.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chauffeur.databinding.ItemRideCardBinding
+import com.example.chauffeur.model.Driver
+import com.example.chauffeur.model.ride.requests.RideConfirmRequest
 import com.example.chauffeur.model.ride.response.Option
+import com.example.chauffeur.model.ride.response.RideResponse
 
 class RideDriverAdapter : ListAdapter<Option, RideDriverAdapter.RideDriverCardHolder>(RideDriverDiffCallBack()) {
+
+    var rideInfo: RideResponse? = null
 
     inner class RideDriverCardHolder(private val binding: ItemRideCardBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Option) {
@@ -22,7 +28,20 @@ class RideDriverAdapter : ListAdapter<Option, RideDriverAdapter.RideDriverCardHo
 
             }
             binding.btnConfirmRide.setOnClickListener {
+                val confirmationRideInfo: RideConfirmRequest? = rideInfo?.let { rideResponse ->
+                    rideResponse.rideRequest?.let {
+                        RideConfirmRequest(
+                            rideRequest = it,
+                            distance = rideResponse.distance,
+                            duration = rideResponse.duration.toString(),
+                            value = item.value,
+                            driver = Driver(id = item.id, name = item.name)
 
+                        )
+                    }
+                }
+
+                Log.i("TAG", "bind: DRIVER $confirmationRideInfo")
             }
         }
     }

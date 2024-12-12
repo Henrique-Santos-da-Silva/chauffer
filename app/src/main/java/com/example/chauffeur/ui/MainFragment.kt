@@ -20,6 +20,8 @@ class MainFragment : Fragment() {
 
     private val rideViewModel: RideViewModel by viewModel()
 
+    private lateinit var newRide: RideRequest
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,7 +39,7 @@ class MainFragment : Fragment() {
         binding?.let { fragmentMain ->
             with(fragmentMain) {
                 formMainEstimativeButton.setOnClickListener {
-                    val newRide = RideRequest(
+                    newRide = RideRequest(
                         customerId = formMainUserId.text.toString(),
                         origin = formMainOriginAddress.text.toString(),
                         destination = formMainDestinationAddress.text.toString()
@@ -55,7 +57,10 @@ class MainFragment : Fragment() {
                         is Resource.Success -> {
                             resource.data?.let { Log.i("TAG2", "uiSetup: $it") }
                             Log.i("TAG2", "uiSetup: ${resource.data}")
-                            resource.data?.let { findNavController().navigate(MainFragmentDirections.actionMainFragmentToRideConfirmFragment(it)) }
+                            resource.data?.let {
+                                it.rideRequest = newRide
+                                findNavController().navigate(MainFragmentDirections.actionMainFragmentToRideConfirmFragment(it))
+                            }
                         }
                         is Resource.Error -> Log.i("TAG2", "uiSetup: ${resource.code} ${resource.message}")
                         is Resource.Loading -> Log.i("TAG2", "uiSetup: LOOOOOOOOOOOOOOOOOOOOOOOOOOOOAAAAAAAAAAAAAAAAAAAADDDDDDDDDDDING")
