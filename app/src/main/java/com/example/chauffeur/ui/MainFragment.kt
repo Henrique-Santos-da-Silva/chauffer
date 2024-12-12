@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.example.chauffeur.databinding.FragmentMainBinding
 import com.example.chauffeur.model.ride.requests.RideRequest
 import com.example.chauffeur.util.Resource
@@ -54,6 +55,7 @@ class MainFragment : Fragment() {
                         is Resource.Success -> {
                             resource.data?.let { Log.i("TAG2", "uiSetup: $it") }
                             Log.i("TAG2", "uiSetup: ${resource.data}")
+                            resource.data?.let { findNavController().navigate(MainFragmentDirections.actionMainFragmentToRideConfirmFragment(it)) }
                         }
                         is Resource.Error -> Log.i("TAG2", "uiSetup: ${resource.code} ${resource.message}")
                         is Resource.Loading -> Log.i("TAG2", "uiSetup: LOOOOOOOOOOOOOOOOOOOOOOOOOOOOAAAAAAAAAAAAAAAAAAAADDDDDDDDDDDING")

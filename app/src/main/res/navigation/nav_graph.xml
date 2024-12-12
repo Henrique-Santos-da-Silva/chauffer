@@ -9,6 +9,21 @@
         android:id="@+id/mainFragment"
         android:name="com.example.chauffeur.ui.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_rideConfirmFragment"
+            app:destination="@id/rideConfirmFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/rideConfirmFragment"
+        android:name="com.example.chauffeur.ui.RideConfirmFragment"
+        android:label="fragment_ride_confirm"
+        tools:layout="@layout/fragment_ride_confirm" >
+        <argument
+            android:name="ride_response_args"
+            app:argType="com.example.chauffeur.model.ride.response.RideResponse" />
+    </fragment>
 
 </navigation>
