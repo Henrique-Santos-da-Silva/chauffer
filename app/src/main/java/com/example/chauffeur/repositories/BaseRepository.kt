@@ -1,5 +1,6 @@
 package com.example.chauffeur.repositories
 
+import android.util.Log
 import com.example.chauffeur.util.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -25,6 +26,7 @@ abstract class BaseRepository {
             } catch (e: IOException) {
                 Resource.Error(null, "Por favor. Verifique sua conexão com a internet")
             } catch (e: Exception) {
+                Log.e("erru", "safeApiCall: ${e.message}", )
                 Resource.Error(null, message = "Ops! Ocorreu um erro inesperado")
             }
         }

@@ -24,62 +24,50 @@
             android:paddingBottom="8dp" />
 
         <TextView
-            android:id="@+id/item_txt_driver_description"
+            android:id="@+id/item_txt_ride_history_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Descrição do motorista"
+            android:text="Data"
             android:paddingBottom="8dp" />
 
         <TextView
-            android:id="@+id/item_txt_driver_vehicle"
+            android:id="@+id/item_txt_ride_history_origin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Veículo: [Descrição do veículo]"
+            android:text="Origem"
             android:paddingBottom="8dp" />
 
         <TextView
-            android:id="@+id/item_txt_ride_price"
+            android:id="@+id/item_txt_ride_history_destination"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Valor da Viagem: R$ 0,00"
+            android:text="Destino"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:id="@+id/item_txt_ride_history_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Distancia"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:id="@+id/item_txt_ride_history_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tempo"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:id="@+id/item_txt_ride_history_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Valor"
             android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:paddingBottom="8dp" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-
-            <RatingBar
-                android:id="@+id/item_ratingbar_driver"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:numStars="5"
-                android:stepSize="1"
-                android:rating="3.5"
-                android:layout_marginEnd="8dp"
-                android:isIndicator="true" />
-
-            <TextView
-                android:id="@+id/item_txt_rating_driver"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3.5 de 5"
-                android:textSize="14sp" />
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btn_confirm_ride"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Confimar"
             android:textSize="18sp"
-            android:layout_marginVertical="16dp"
-            android:layout_gravity="end" />
+            android:textStyle="bold"
+            android:layout_gravity="end"
+            android:paddingBottom="8dp" />
 
     </LinearLayout>
 

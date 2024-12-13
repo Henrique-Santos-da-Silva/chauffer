@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/ride_history_txt_user_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Id do Usuario"
+            android:inputType="text"
+            android:paddingHorizontal="12dp"
+            android:background="@android:drawable/edit_text"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/ride_history_txt_driver_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Id do Motorista"
+            android:inputType="number"
+            android:paddingHorizontal="12dp"
+            android:background="@android:drawable/edit_text"
+            android:layout_marginBottom="12dp" />
+
+        <ImageButton
+            android:id="@+id/btn_filter_ride_history"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            android:layout_marginStart="16dp"
+            android:paddingVertical="8dp"
+            android:background="?attr/colorPrimary"
+            android:src="@drawable/icon_filter"
+            android:layout_gravity="end" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_ride_history"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical" />
+
+</LinearLayout>
