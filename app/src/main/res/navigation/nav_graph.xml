@@ -24,6 +24,14 @@
         <argument
             android:name="ride_response_args"
             app:argType="com.example.chauffeur.model.ride.response.RideResponse" />
+        <action
+            android:id="@+id/action_rideConfirmFragment_to_rideHistoryFragment"
+            app:destination="@id/rideHistoryFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/rideHistoryFragment"
+        android:name="com.example.chauffeur.ui.RideHistoryFragment"
+        tools:layout="@layout/fragment_ride_history"
+        android:label="RideHistoryFragment" />
 
 </navigation>

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +16,9 @@ import com.example.chauffeur.databinding.FragmentRideConfirmBinding
 import com.example.chauffeur.model.ride.response.Option
 import com.example.chauffeur.model.ride.response.RideResponse
 import com.example.chauffeur.ui.adapters.RideDriverAdapter
+import com.example.chauffeur.viewmodel.RideViewModel
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RideConfirmFragment : Fragment() {
     private var _binding: FragmentRideConfirmBinding? = null
@@ -23,7 +26,7 @@ class RideConfirmFragment : Fragment() {
 
     private val rideConfirmFragmentArgs: RideConfirmFragmentArgs by navArgs()
 
-    private val rideDriverAdapter: RideDriverAdapter by inject()
+    private val rideViewModel: RideViewModel by viewModel()
 
 
     override fun onCreateView(
@@ -37,10 +40,11 @@ class RideConfirmFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Log.i("TAG3", "onViewCreated: ${rideConfirmFragmentArgs.rideResponseArgs}")
 
         val rideResponseArgs: RideResponse = rideConfirmFragmentArgs.rideResponseArgs
         val rideDriverOptions: List<Option> = rideResponseArgs.options
+
+        val rideDriverAdapter = RideDriverAdapter(rideViewModel = rideViewModel, findNavController())
 
         binding?.rvRideConfirmDriver?.adapter = rideDriverAdapter
         binding?.rvRideConfirmDriver?.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)

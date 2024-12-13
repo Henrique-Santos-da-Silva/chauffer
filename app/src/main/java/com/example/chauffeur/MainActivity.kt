@@ -11,6 +11,7 @@ import com.example.chauffeur.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +24,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         val navHostFragment: NavHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController: NavController = navHostFragment.navController
+        navController = navHostFragment.navController
     }
 }

@@ -1,7 +1,6 @@
 package com.example.chauffeur.model.ride.response
 
 import com.example.chauffeur.model.ride.requests.RideRequest
-import com.google.gson.annotations.Expose
 import java.io.Serializable
 
 data class RideResponse(
@@ -35,4 +34,12 @@ data class Option(
 data class Review(
     val rating: Int,
     val comment: String,
+)
+
+data class RideConfirmResponse(
+    val success: Boolean
+)
+
+data class RideHistoryResponse(
+    val rides: List<RideHistory>
 )

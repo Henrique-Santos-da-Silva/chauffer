@@ -2,4 +2,13 @@
     <string name="app_name">Chauffeur</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ride_history_data"><b>Data e Hora:</b> %1$s</string>
+    <string name="ride_history_driver_name"><b>Nome:</b> %1$s</string>
+    <string name="ride_history_origin"><b>Origem:</b> %1$s</string>
+    <string name="ride_history_destination"><b>Destino:</b> %1$s</string>
+    <string name="ride_history_distance"><b>Distancia:</b> %1$s</string>
+    <string name="ride_history_time"><b>Tempo:</b> %1$s</string>
+    <string name="ride_history_price"><b>Valor:</b> %.2f</string>
+    <string name="ride_history_driver_desc"><b>Descrição:</b> %1$s</string>
+    <string name="ride_history_vehicle"><b>Veiculo:</b> %1$s</string>
 </resources>

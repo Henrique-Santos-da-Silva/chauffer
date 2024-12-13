@@ -9,6 +9,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.MainFragment">
 
+    <include android:id="@+id/pb_main" layout="@layout/progress_circular" />
+
+
     <EditText
         android:id="@+id/form_main_user_id"
         android:layout_width="match_parent"
